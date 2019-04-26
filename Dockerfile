@@ -15,7 +15,7 @@ RUN VERSION=${version} PLUGINS=${plugins} /bin/sh /usr/bin/builder.sh
 # Final stage
 #
 FROM alpine:3.8
-LABEL maintainer "Abiola Ibrahim <abiola89@gmail.com>"
+LABEL maintainer="Abiola Ibrahim <abiola89@gmail.com>"
 
 ARG version="1.0.0"
 LABEL caddy_version="$version"
@@ -43,5 +43,5 @@ COPY index.html /srv/index.html
 COPY --from=builder /go/bin/parent /bin/parent
 
 ENTRYPOINT ["/bin/parent", "caddy"]
-CMD ["--conf", "/etc/Caddyfile", "--log", "stdout", "--agree=$ACME_AGREE"]
+CMD ["--conf", "/etc/Caddyfile", "--log", "stdout", "--agree=$ACME_AGREE","-quic"]
 
