@@ -14,10 +14,10 @@ RUN VERSION=${version} PLUGINS=${plugins} /bin/sh /usr/bin/builder.sh
 #
 # Final stage
 #
-FROM alpine:3.9.3
+FROM alpine:3.10.1
 LABEL maintainer="Abiola Ibrahim <abiola89@gmail.com>"
 
-ARG version="1.0.0"
+ARG version="1.0.1"
 LABEL caddy_version="$version"
 
 # Let's Encrypt Agreement
